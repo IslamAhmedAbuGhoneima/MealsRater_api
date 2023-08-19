@@ -5,7 +5,6 @@ class MealSerializer(ModelSerializer):
         model = Meal
         fields = '__all__'
 
-
 class RateSerializer(ModelSerializer):
     class Meta:
         model = Rating
