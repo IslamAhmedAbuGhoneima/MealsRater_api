@@ -3,7 +3,7 @@ from .models import *
 class MealSerializer(ModelSerializer):
     class Meta:
         model = Meal
-        fields = '__all__'
+        fields = ['id','title','description','no_of_rating','avg_rating']
 
 class RateSerializer(ModelSerializer):
     class Meta:
