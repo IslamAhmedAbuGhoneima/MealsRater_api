@@ -5,7 +5,14 @@ from django.core.validators import MaxValueValidator,MinValueValidator
 class Meal(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=360)
-
+    def no_of_rating(self):
+        return Rating.objects.filter(meal = self).count()
+    def avg_rating(self):
+        avg_rate = 0
+        count = self.no_of_rating()
+        for start in range(count):
+            avg_rate += Rating.objects.filter(meal = self)[start].stars
+        return avg_rate/count if count > 0 else 0
     def __str__(self):
         return self.title
 
